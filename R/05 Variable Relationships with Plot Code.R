@@ -137,6 +137,10 @@ test<-lapply(clim.var, function(v){
     for ( i in grep("mod", colnames(ReducedDAT))){ReducedDAT[,i]<-scale(ReducedDAT[,i])}
     ReducedDAT$m<-apply(ReducedDAT[,grep("mod", colnames(ReducedDAT))], 1,mean)
     ReducedDAT$sd<-apply(ReducedDAT[,grep("mod", colnames(ReducedDAT))], 1,sd)
+    
+    # Subset to the middle 90% of data for each varible
+    lower<-unname(quantile(ReducedDAT$x,  probs = c(5)/100))
+    up<-unname(quantile(ReducedDAT$x,  probs = c(95)/100))
     ReducedDAT<-ReducedDAT[ReducedDAT$x<up,]
     ReducedDAT<-ReducedDAT[ReducedDAT$x>lower,]
     ReducedDAT$upperSD<-ReducedDAT$m+ReducedDAT$sd
@@ -250,6 +254,9 @@ fig4<-lapply(taxa, function(t){
     for ( i in grep("mod", colnames(ReducedDAT))){ReducedDAT[,i]<-scale(ReducedDAT[,i])}
     ReducedDAT$m<-apply(ReducedDAT[,grep("mod", colnames(ReducedDAT))], 1,mean)
     ReducedDAT$sd<-apply(ReducedDAT[,grep("mod", colnames(ReducedDAT))], 1,sd)
+    # Subset to the middle 90% of data for each varible
+    lower<-unname(quantile(ReducedDAT$x,  probs = c(5)/100))
+    up<-unname(quantile(ReducedDAT$x,  probs = c(95)/100))
     ReducedDAT<-ReducedDAT[ReducedDAT$x<up,]
     ReducedDAT<-ReducedDAT[ReducedDAT$x>lower,]
     ReducedDAT$upperSD<-ReducedDAT$m+ReducedDAT$sd
