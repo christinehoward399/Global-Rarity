@@ -19,7 +19,7 @@ library(snowfall)
 setwd("X:\\Species rarity\\Rarity- Global analysis\\")
 
 ## Taxonomic group
-taxaList<-c("Tetrapod")##,
+taxaList<-c("Tetrapod", "Amphibian","Reptile","Bird","Mammal")
 
 ## Numer of CPUS to run on
 CP<-4
@@ -45,7 +45,7 @@ clim.var<-c("Annual.Precip","Temp.seasonality","Precip.seasonality","Mean.Temp",
 CoVars<-c(clim.var)#, "Total")#,"DD")
 
 ## Zoogeographic Regions
-regionList<-c("African","Amazonian","Arctico.Sibserian",
+regionList<-c("African","Amazonian","Arctico.Siberian",
            "Australian","Chinese","Eurasian","Guinea.Congolian","Indo.Malayan","Japanese","Madagascan","Mexican","North.American",
            "Novozelandic","Oriental","Panamanian","Papua.Melanesian","Saharo.Arabian","South.American","Tibetan","Global")
 
